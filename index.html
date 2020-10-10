@@ -25,6 +25,67 @@
           </div>
         </div>
       </nav>
+<div class="jumbotron">
+        <h1 class="display-4" , id="title1">Baseball Quiz</h1>
+        <p class="lead" id="start_text">Answer the following questions and record your high score.</p>
+        <hr class="my-4">
+        <div class="container1">
+          <div class="container2" id="container2">
+            <a class="btn btn-primary btn-lg" onClick="startQuiz()" href="#" role="button" id="startButton">Start Quiz</a>
+            <section id="sec1">
+              <br>
+              <label id="quest1"></label>
+              <br>
+              <a class="btn btn-primary btn-lg quiz-answers" href="#" role="button" id="button1">choice1</a>
+              <br>
+              <a class="btn btn-primary btn-lg quiz-answers" href="#" role="button" id="button2">choice2</a>
+              <br>
+              <a class="btn btn-primary btn-lg quiz-answers" href="#" role="button" id="button3">choice3</a>
+              <div style="display:flex; flex-direction: row; justify-content: left; align-items: left">
+                <p id="result" style="flex-direction: row; justify-content: left; align-items: left"></p>
+              </div>
+            </section>
+          </div>
+          <div class="container3" id="container3">
+            <section>
+              <div style="display:flex; flex-direction: row; justify-content: left; align-items: left">
+                <p id="score_result" style="flex-direction: row; justify-content: left; align-items: left"></p>
+              </div>
+              <br>
+              <br>
+              <a class="btn btn-primary btn-lg" onClick="startOver()" href="#" role="button">Retake Quiz?</a>
+              <a class="btn btn-primary btn-lg" onClick="quit()" href="#" role="button">Quit?</a>
+            </section>
+          </div>
+          <div class="container4" id="container4">
+            <section>
+              <div style="display:flex; flex-direction:row; justify-content: left; align-items: left;">
+                <label>Enter Name</label>
+                <input type="text" id="enterName" value=""/>
+              </div>
+              <div>
+                <a class="btn btn-primary btn-lg" onClick="save()" href="#" role="button">Save?</a>
+              </div>
+            </section>
+          </div>
+        </div>
+    
+      </div>
+    
+    
+    
+    
+      </div>
+    
+      <div>
+        <a style= "position: fixed; bottom: 20px" onClick="show_scores()" href="#" role="button">show scores</a>
+      </div>
+    
+    
+    
+    
+    
+      <script src="script.js"></script>
     
 </body>
 </html>
