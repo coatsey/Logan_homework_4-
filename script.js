@@ -1,5 +1,8 @@
 var counter = 0;
 var correctCount = 0;
+var high_score = 0.0;
+var timer_is_in_use = 0;
+var user_array = [];
 
 var questionAnswers = {
 
@@ -34,6 +37,8 @@ var x = setInterval(function () {
     }
 
 }, 1000);
+
+
 
 function selectingQuestion(inpQestion) {
     document.getElementById("quest1").innerHTML = inpQestion.question;
