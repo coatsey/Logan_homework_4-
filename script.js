@@ -1,5 +1,6 @@
 var counter = 0;
 var correctCount = 0;
+var second_val = 0;
 var high_score = 0.0;
 var timer_is_in_use = 0;
 var user_array = [];
@@ -7,7 +8,7 @@ var user_array = [];
 var questionAnswers = {
 
     question1: {
-        question: "How many innings are in a game?",
+        question: "How many innings are in a baseball game?",
         answers: ["10", "4", "9",],
         correctAnswer: "9"
     },
@@ -38,8 +39,6 @@ var x = setInterval(function () {
 
 }, 1000);
 
-
-
 function selectingQuestion(inpQestion) {
     document.getElementById("quest1").innerHTML = inpQestion.question;
     document.getElementById("button1").innerHTML = inpQestion.answers[0];
@@ -59,6 +58,71 @@ function startQuiz() {
     selectingQuestion(questionAnswers.question1);
     second_val = 30;
     document.getElementById("stopWatch").style.display = "block";
+
+}
+
+var elements = document.getElementsByClassName("quiz-answers");
+
+Array.from(elements).forEach(pass_elem);
+
+
+
+function pass_elem(element) {
+
+    element.addEventListener('click', function () {
+        var correctAnswer;
+
+        if (counter == 1) {
+            correctAnswer = questionAnswers.question1.correctAnswer;
+        }
+        else if (counter == 2) {
+            correctAnswer = questionAnswers.question2.correctAnswer;
+        }
+        else {
+            correctAnswer = questionAnswers.question3.correctAnswer;
+        }
+
+        if (correctAnswer == this.textContent) {
+            correctCount++;
+            document.getElementById("result").innerHTML = "Correct";
+            document.getElementById("result").style.display = 'block';
+        }
+        else {
+            document.getElementById("result").innerHTML = "Wrong";
+            second_val -= 5;
+            document.getElementById("result").style.display = 'block';
+        }
+
+        setTimeout(function () {
+            document.getElementById("result").style.display = 'none';
+        }, 2000);
+
+
+        if (counter == 1) {
+            selectingQuestion(questionAnswers.question2);
+        }
+        else if (counter == 2) {
+            selectingQuestion(questionAnswers.question3);
+        }
+        else {
+            var score = correctCount / 3.0;
+            var sval = Number(score).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 0 });
+            document.getElementById("score_result").innerHTML = "Score: " + sval + "; with a time of: " + second_val;
+            document.getElementById("container3").style.display = "block";
+            document.getElementById("stopWatch").style.display = 'none';
+            document.getElementById("container2").style.display = 'none';
+
+            timer_is_in_use = 0;
+
+            if (score > high_score) {
+                high_score = score;
+                var sval = Number(score).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 0 });
+                document.getElementById("highScores").innerHTML = "High Score: " + sval;
+            }
+        }
+
+        return 0;
+    })
 
 }
 
